@@ -27,13 +27,16 @@ public class BookCheckOut {
        }
         int i = 1;   
           while(i<=3){
-          // for(int j=1;j<=3;j++){
-          if (i==3)
-          {break;} //break statement
+          // for(int j=1;j<=3;j++){\
+          
+          if(i==3)
+          
+          {break;}
+          
            System.out.println("name of book "+i+" is: "+book_name);  
            i++;
           
-      
+          
            }
            }
            
