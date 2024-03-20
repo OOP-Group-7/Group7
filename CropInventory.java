@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CropInventory2 {
+public class CropInventory1 {
     private static String[] crops = new String[100];
     private static int[] quantities = new int[100];
     private static int count = 0;
@@ -50,23 +50,5 @@ public class CropInventory2 {
         count++;
 
         System.out.println("Crop added successfully.");
-    }
-
-    private static void updateCropQuantity(Scanner scanner) {
-        if (count == 0) {
-            System.out.println("Inventory is empty. No crops to update.");
-            return;
-        }
-
-        System.out.print("Enter crop name to update quantity: ");
-        String cropName = scanner.next();
-
-        int index = -1;
-        for (int i = 0; i < count; i++) {
-            if (crops[i].equalsIgnoreCase(cropName)) {
-                index = i;
-                break;
-            }
-        }
     }
 }
