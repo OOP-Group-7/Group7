@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CropInventory{
+public class CropInventory3 {
     private static String[] crops = new String[100];
     private static int[] quantities = new int[100];
     private static int count = 0;
@@ -10,7 +10,7 @@ public class CropInventory{
         int choice;
 
         do {
-           
+            System.out.println("\nCrop Inventory Management System");
             System.out.println("1. Add new crop");
             System.out.println("2. Update crop quantity");
             System.out.println("3. View current inventory");
@@ -37,5 +37,45 @@ public class CropInventory{
         } while (choice != 4);
 
         scanner.close();
+    }
+
+    private static void addNewCrop(Scanner scanner) {
+        System.out.print("Enter crop name: ");
+        String cropName = scanner.next();
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
+
+        crops[count] = cropName;
+        quantities[count] = quantity;
+        count++;
+
+        System.out.println("Crop added successfully.");
+    }
+
+    private static void updateCropQuantity(Scanner scanner) {
+        if (count == 0) {
+            System.out.println("Inventory is empty. No crops to update.");
+            return;
+        }
+
+        System.out.print("Enter crop name to update quantity: ");
+        String cropName = scanner.next();
+
+        int index = -1;
+        for (int i = 0; i < count; i++) {
+            if (crops[i].equalsIgnoreCase(cropName)) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("Crop not found in inventory.");
+        } else {
+            System.out.print("Enter new quantity: ");
+            int newQuantity = scanner.nextInt();
+            quantities[index] = newQuantity;
+            System.out.println("Quantity updated successfully.");
+        }
     }
 }
